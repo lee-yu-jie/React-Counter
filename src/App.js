@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [number, setNumber] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="counter">
+      <div className="zero" onClick={() => setNumber( 0 )}>歸零</div>
+      <div className="up" onClick={() => setNumber(number + 1)}>︽</div>
+      <div className="number">{number}</div>
+      <div className={`down ${number <= 0 && 'hidden'}`} onClick={() => setNumber(number - 1)}>︾</div>
     </div>
   );
 }
